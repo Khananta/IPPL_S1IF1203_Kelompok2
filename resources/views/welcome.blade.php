@@ -43,10 +43,8 @@
             </a>
 
             <a href="{{ route('register') }}" 
-            class="relative overflow-hidden bg-[#7AA8D2] text-white px-4 py-2.5 rounded-2xl font-semibold text-sm shadow-lg transition-all duration-300 group">
-                <span class="absolute inset-0 w-0 bg-[#4D9BE2] transition-all duration-500 ease-out group-hover:w-full"></span>
-                
-                <span class="relative z-10 transition-colors duration-300">✨Daftar sekarang</span>
+            class="bg-gradient-to-r from-[#4D9BE2] to-[#3584CC] text-white px-4 py-2.5 rounded-2xl font-semibold text-sm shadow-lg hover:shadow-xl hover:from-[#3584CC] hover:to-[#2A72B5] cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-1">
+                <span>✨ Daftar sekarang</span>
             </a>
         </div>
 
@@ -89,7 +87,7 @@
                 <img src="{{ asset('assets/img/landing/dummy-pengguna/dummy pengguna-3.png') }}" alt="Mockup MacaBae" class="w-8 h-8 rounded-full bg-gray-300 border-2 border-white">
                 <span class="pl-4 text-sm font-semibold self-center">1k+ pengguna aktif</span>
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">📚 Akses Buku Perpustakaan <br> Jadi Lebih Mudah</h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 leFading-tight">📚 Akses Buku Perpustakaan <br> Jadi Lebih Mudah</h1>
             <p class="text-gray-500 mb-10">Cari, lihat detail, dan baca eBook tanpa login.</p>
             
             <div class="relative max-w-xl mx-auto mb-16">
@@ -111,9 +109,20 @@
             </div>
             
             <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-                @php $tags = ['E-Book', 'Self Improvement', 'Novel', 'Fiksi', 'Komik', 'Non-Fiksi', 'Sejarah & Budaya', 'Sains', 'Teknologi', 'Agama & Filsafat', '20+ kategori menarik']; @endphp
+                @php 
+                    $tags = ['E-Book', 'Self Improvement', 'Novel', 'Fiksi', 'Komik', 'Non-Fiksi', 'Sejarah & Budaya', 'Sains', 'Teknologi', 'Agama & Filsafat', '20+ kategori menarik']; 
+                @endphp
+                
                 @foreach($tags as $tag)
-                    <span class="px-6 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 font-medium hover:shadow-md cursor-pointer transition">{{ $tag }}</span>
+                    @if($tag === '20+ kategori menarik')
+                        <span class="px-6 py-3 bg-gradient-to-r from-[#4D9BE2] to-[#3584CC] text-white rounded-2xl shadow-sm font-semibold hover:shadow-md hover:from-[#3584CC] hover:to-[#2A72B5] cursor-pointer transition-all duration-300">
+                            {{ $tag }}
+                        </span>
+                    @else
+                        <span class="px-6 py-3 bg-white text-gray-700 rounded-2xl shadow-sm border border-gray-100 font-medium hover:shadow-md cursor-pointer transition duration-300">
+                            {{ $tag }}
+                        </span>
+                    @endif
                 @endforeach
             </div>
         </div>
